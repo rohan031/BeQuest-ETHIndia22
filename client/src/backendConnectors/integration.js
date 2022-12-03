@@ -377,4 +377,3 @@ export async function getChainAddress(){
 	}
 
 }
-
