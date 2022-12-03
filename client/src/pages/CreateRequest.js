@@ -109,6 +109,8 @@ function CreateRequest() {
 		});
 	};
 
+	const [tokenFees, setTokenFees] = useState("0x2386F26FC10000");
+
 	const Tokens = userTokens.map((item, index) => {
 		if (
 			item.contract_address !== "0x0000000000000000000000000000000000001010" &&
@@ -195,16 +197,44 @@ function CreateRequest() {
 						<CreateRequestForm
 							tokenDetails={tokenDetails}
 							setLoading={setLoading}
+							tokenFees={tokenFees}
+							setTokenFees={setTokenFees}
 						/>
 						<br />
 						<WorldIDWidget
 							actionId="wid_staging_9f3a190dcfd6bcd9a27f6f88bc31793e" // obtain this from developer.worldcoin.org
-							signal="Bequest Protocol"
-							enableTelemetry
-							onSuccess={(verificationResponse) =>
-								console.log(verificationResponse)
-							} // you'll actually want to pass the proof to the API or your smart contract
-							onError={(error) => console.error(error)}
+							signal={metamaskDetails.address}
+							enableTelemetry={true}
+							theme={"dark"}
+							onSuccess={(verificationResponse) => {
+								console.log(verificationResponse);
+
+								setTokenFees("0x0");
+
+								// fetch("https://developer.worldcoin.org/api/v1/verify", {
+								// 	method: "POST",
+								// 	headers: { "Content-type": "application/json" },
+								// 	body: JSON.stringify({
+								// 		merkle_root: verificationResponse.merkle_root,
+								// 		nullifier_hash: verificationResponse.nullifier_hash,
+								// 		action_id: "wid_staging_9f3a190dcfd6bcd9a27f6f88bc31793e",
+								// 		signal: metamaskDetails.address,
+								// 		proof: verificationResponse.proof,
+								// 	}),
+								// })
+								// 	.then((res) => res.json())
+								// 	.then((res) => {
+								// 		console.log(res);
+								// 	})
+								// 	.catch((err) => {
+								// 		console.log(err);
+								// 	});
+							}} // you'll actually want to pass the proof to the API or your smart contract
+							onError={(error) => setTokenFees("0x2386F26FC10000")}
+							onInitSuccess={() => console.log("Init successful")}
+							onInitError={(error) =>
+								console.log("Error while initialization World ID", error)
+							}
 						/>
 					</div>
 				</div>
