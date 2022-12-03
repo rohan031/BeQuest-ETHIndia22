@@ -11,6 +11,7 @@ import Moonbeam from "../assests/moonbeam.png";
 import Gnosis from "../assests/gnosis.png";
 import Cronos from "../assests/cronos.svg";
 import Goerli from "..//assests/goerli.svg";
+import { WorldIDWidget } from "@worldcoin/id";
 
 function CreateRequest() {
 	const [userTokens, setUserTokens] = useState([]);
@@ -194,6 +195,16 @@ function CreateRequest() {
 						<CreateRequestForm
 							tokenDetails={tokenDetails}
 							setLoading={setLoading}
+						/>
+						<br />
+						<WorldIDWidget
+							actionId="wid_staging_9f3a190dcfd6bcd9a27f6f88bc31793e" // obtain this from developer.worldcoin.org
+							signal="Bequest Protocol"
+							enableTelemetry
+							onSuccess={(verificationResponse) =>
+								console.log(verificationResponse)
+							} // you'll actually want to pass the proof to the API or your smart contract
+							onError={(error) => console.error(error)}
 						/>
 					</div>
 				</div>
