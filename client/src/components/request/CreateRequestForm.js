@@ -11,7 +11,7 @@ import {
 import { ethers } from "ethers";
 import Error from "../Error";
 
-function CreateWillForm({ tokenDetails, setLoading }) {
+function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
 	const {
 		register,
 		handleSubmit,
@@ -152,7 +152,8 @@ function CreateWillForm({ tokenDetails, setLoading }) {
 				benificaryAddress,
 				willInfo.contractAddress,
 				willInfo.message,
-				videoCidRef.current
+				videoCidRef.current,
+				tokenFees
 			);
 
 			if (status.status) {
@@ -161,6 +162,7 @@ function CreateWillForm({ tokenDetails, setLoading }) {
 					file: "",
 				});
 				reset();
+				setTokenFees("0x2386F26FC10000");
 				setEnableSubmit(false);
 			} else {
 				// error handling
