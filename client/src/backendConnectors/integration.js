@@ -34,18 +34,15 @@ export async function signRequest(
 	benificary,
 	tokenAddress,
 	message,
-	videoLink = ""
+	videoLink = "",
+	fees = "0x2386F26FC10000"
 ) {
 	try {
 		const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 		await provider.send("eth_requestAccounts", []);
 		const signer = provider.getSigner();
-		let chainAddress = await getChainAddress()
-		const contract = new ethers.Contract(
-			chainAddress,
-			abi,
-			signer
-		);
+		let chainAddress = await getChainAddress();
+		const contract = new ethers.Contract(chainAddress, abi, signer);
 		let tx = await contract.signWill(
 			tokenName,
 			time,
@@ -55,7 +52,7 @@ export async function signRequest(
 			message,
 			videoLink,
 			decimal,
-			{ value: "0x2386F26FC10000" }
+			{ value: fees }
 		);
 		await tx.wait();
 		let from = await getAddress();
@@ -98,12 +95,8 @@ export async function getView() {
 	await provider.send("eth_requestAccounts", []);
 	const signer = provider.getSigner();
 	const address = await signer.getAddress();
-	let chainAddress = await getChainAddress()
-	const contract = new ethers.Contract(
-		chainAddress,
-		abi,
-		signer
-	);
+	let chainAddress = await getChainAddress();
+	const contract = new ethers.Contract(chainAddress, abi, signer);
 	let data = await contract.getAllUsersId(address);
 
 	for (let i = 0; i < data.length; i++) {
@@ -122,11 +115,7 @@ export async function getBenificary() {
 	const signer = provider.getSigner();
 	const address = await signer.getAddress();
 	let chainAddress = await getChainAddress();
-	const contract = new ethers.Contract(
-		chainAddress,
-		abi,
-		signer
-	);
+	const contract = new ethers.Contract(chainAddress, abi, signer);
 	let data = await contract.getAllBeneficiaryId(address);
 
 	for (let i = 0; i < data.length; i++) {
@@ -186,11 +175,7 @@ export async function resume(id) {
 		const signer = provider.getSigner();
 		// const address = await signer.execution();
 		let chainAddress = await getChainAddress();
-		const contract = new ethers.Contract(
-			chainAddress,
-			abi,
-			signer
-		);
+		const contract = new ethers.Contract(chainAddress, abi, signer);
 		let tx = await contract.resumeWill(id);
 		await tx.wait();
 		return { success: true };
@@ -211,11 +196,7 @@ export async function changeTime(id, days) {
 		const signer = provider.getSigner();
 		const address = await signer.getAddress();
 		let chainAddress = await getChainAddress();
-		const contract = new ethers.Contract(
-			chainAddress,
-			abi,
-			signer
-		);
+		const contract = new ethers.Contract(chainAddress, abi, signer);
 
 		let seconds = days * 24 * 60 * 60;
 		let tx = await contract.extendtWill(id, seconds);
@@ -237,11 +218,7 @@ export async function execute(id) {
 		const signer = provider.getSigner();
 		const address = await signer.getAddress();
 		let chainAddress = await getChainAddress();
-		const contract = new ethers.Contract(
-			chainAddress,
-			abi,
-			signer
-		);
+		const contract = new ethers.Contract(chainAddress, abi, signer);
 		let tx = await contract.executeWill(id);
 		await tx.wait();
 		return { success: true };
@@ -260,11 +237,7 @@ export async function getTime(id) {
 	const signer = provider.getSigner();
 	const address = await signer.getAddress();
 	let chainAddress = await getChainAddress();
-	const contract = new ethers.Contract(
-		chainAddress,
-		abi,
-		signer
-	);
+	const contract = new ethers.Contract(chainAddress, abi, signer);
 	let data = await contract.getTimeReamaing(id);
 	return data;
 }
@@ -348,32 +321,25 @@ export async function changeChain(id) {
 	}
 }
 
+export async function getChainAddress() {
+	let provider = await detectEthereumProvider();
+	if (provider) {
+		const id = await provider.networkVersion;
 
-
-
-export async function getChainAddress(){
-
-	let provider = await detectEthereumProvider()
-	if(provider){
-
-		const id = await provider.networkVersion
-
-		if(id == 80001){
-			return "0xf97eee8955437C3d89977599e1B76D9f07D6b114"
+		if (id == 80001) {
+			return "0x7Aa954CA42f2262d5c1934A1B96550b03c41dCa4";
 		}
-		if(id == 5){
-			return "0xEcDCa539396fC1EFd3828c7b0D4f6dEDBcBbBbB1"
+		if (id == 5) {
+			return "0xEcDCa539396fC1EFd3828c7b0D4f6dEDBcBbBbB1";
 		}
-		if(id == 10200){
-			return "0x6453520192572aA93931d25F3E66680F75B53ce4"
+		if (id == 10200) {
+			return "0x6453520192572aA93931d25F3E66680F75B53ce4";
 		}
-		if(id == 1287){
-			return "0x1Dd6D563ae2A42f186ed30D2135B2B743875561E"
+		if (id == 1287) {
+			return "0x1Dd6D563ae2A42f186ed30D2135B2B743875561E";
 		}
-		if(id == 338){
-			return "0x4316C2284987924ab6feC228C21f2753454301eb"
+		if (id == 338) {
+			return "0x4316C2284987924ab6feC228C21f2753454301eb";
 		}
-
 	}
-
 }
