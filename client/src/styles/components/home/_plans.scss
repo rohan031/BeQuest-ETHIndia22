@@ -1,0 +1,139 @@
+@use "../../abstracts" as ab;
+
+.plans {
+	background-color: ab.$background-dark2;
+	border-radius: 3em;
+
+	position: relative;
+	top: -2em;
+	z-index: -1;
+
+	padding-block: 5em;
+
+	text-transform: capitalize;
+
+	@include ab.screen-50 {
+		padding-block: 8em 8em;
+	}
+
+	&-card {
+		width: min(90%, 70rem);
+		margin-inline: auto;
+
+		display: flex;
+		flex-direction: column;
+		gap: 4em;
+
+		@include ab.screen-50 {
+			flex-direction: row;
+			gap: 1em;
+		}
+
+		@include ab.screen-75 {
+			gap: 3em;
+		}
+
+		&__item {
+			background-image: ab.$planning-card;
+			box-shadow: ab.$box-shadow;
+			border-radius: 0.8em;
+
+			padding-inline: 0.8em;
+			padding-block: 1.4em;
+
+			rotate: 80deg;
+			scale: 0.2;
+			opacity: 0;
+
+			transition: rotate 0.8s ease-in, scale 0.8s ease-in, opacity 0.8s ease-in;
+
+			@include ab.screen-50 {
+				padding-inline: 1.6em;
+				padding-block: 2em;
+			}
+
+			&.right {
+				rotate: 0deg;
+				scale: 1;
+				opacity: 1;
+
+				@include ab.screen-50 {
+					rotate: 10deg;
+				}
+			}
+
+			&:nth-child(1) {
+				@include ab.screen-50 {
+					z-index: -1;
+				}
+			}
+
+			display: flex;
+			flex-direction: column;
+			gap: 0.4em;
+
+			@include ab.screen-40 {
+				flex-direction: row;
+				align-items: center;
+			}
+
+			@include ab.screen-50 {
+				flex-direction: column;
+				flex: 50%;
+			}
+
+			img {
+				max-width: 18rem;
+				margin-inline: auto;
+			}
+
+			&-info {
+				display: flex;
+				flex-direction: column;
+				gap: 0.4em;
+
+				@include ab.screen-40 {
+				}
+
+				&__head {
+					color: ab.$text-pink;
+					font-size: clamp(1.3rem, 2.6vw, 2rem);
+				}
+
+				&__ul {
+					margin: 0;
+					padding-inline: 2em 0;
+
+					@include ab.screen-40 {
+						padding-inline: 1em 0;
+					}
+
+					@include ab.screen-50 {
+						padding-inline: 2em 0;
+					}
+
+					&-li {
+						font-weight: 500;
+						font-size: clamp(1rem, 1.8vw, 1.2rem);
+						color: #222831;
+						color: ab.$background-dark2;
+					}
+				}
+			}
+		}
+	}
+}
+
+.left-item {
+	rotate: -80deg;
+
+	&.left {
+		rotate: 0deg;
+		scale: 1;
+		opacity: 1;
+
+		@include ab.screen-50 {
+			rotate: -10deg;
+		}
+	}
+}

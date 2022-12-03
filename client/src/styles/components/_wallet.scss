@@ -1,0 +1,153 @@
+@use "../abstracts" as ab;
+
+.wallet {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-block: 3em;
+	overflow-x: hidden;
+
+	max-width: 100vw;
+	min-height: 100vh;
+
+	background-image: ab.$button-gradient;
+	animation: gradient 15s ease infinite;
+	background-size: 400% 400%;
+
+	@include ab.screen-40 {
+		padding-block: 2em 5em;
+	}
+
+	&-flex {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+		align-items: flex-start;
+
+		@include ab.screen-40 {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	&-logo {
+		margin-bottom: -3em;
+
+		img {
+			max-width: 22rem;
+		}
+	}
+
+	&-collection {
+		background-color: rgba(ab.$background-dark2, 0.6);
+		backdrop-filter: blur(1em);
+
+		padding-block: 2em 3em;
+		padding-inline: clamp(0.6em, 6vw, 1.5em);
+		width: min(90%, 35rem);
+		border-radius: 0.8em;
+
+		display: flex;
+		flex-direction: column;
+		gap: 2em;
+
+		box-shadow: ab.$box-shadow;
+
+		&__head {
+			text-align: center;
+			font-size: clamp(1.8rem, 4vw, 2.2rem);
+			color: ab.$text-pink;
+		}
+
+		&__item {
+			background-color: transparent;
+			border: none;
+			outline: none;
+			display: flex;
+			align-items: center;
+			gap: clamp(1em, 3vw, 1.8em);
+			padding-inline: clamp(1em, 3vw, 1.6em);
+			padding-block: 0.8em;
+			border-radius: 2em;
+			cursor: pointer;
+
+			text-align: left;
+
+			&:hover {
+				background-color: rgba(ab.$background-dark2, 0.6);
+
+				.wallet-name {
+					text-decoration-color: ab.$text-golden;
+				}
+			}
+
+			img {
+				max-width: 3rem;
+			}
+
+			.wallet-name {
+				font-size: clamp(1.2rem, 3vw, 1.4rem);
+				font-weight: 500;
+				color: ab.$text-golden;
+				text-decoration: underline transparent;
+
+				transition: text-decoration-color 0.3s ease-in;
+			}
+
+			.coming-soon {
+				font-size: 0.9rem;
+				color: ab.$text-pink;
+				margin-left: 0.2em;
+			}
+		}
+	}
+
+	&-chains {
+		margin-block: 0 1em;
+		width: min(90%, 70rem);
+		margin-inline: auto;
+
+		&__head {
+			text-align: center;
+			font-size: 1.4rem;
+			text-decoration: underline;
+			user-select: none;
+		}
+
+		&__list {
+			margin-block: 0.6em 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.5em;
+			justify-content: center;
+
+			img {
+				width: clamp(9rem, 25vw, 15rem);
+				cursor: pointer;
+
+				border: 0.2em solid transparent;
+				padding-inline: 1em;
+				padding-block: 0.3em;
+				border-radius: 0.8em;
+
+				transition: border-color 0.3s ease-in-out;
+
+				&:hover {
+					border-color: ab.$text-pink;
+				}
+			}
+		}
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
+}

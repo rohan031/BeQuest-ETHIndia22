@@ -1,0 +1,94 @@
+@use "../../abstracts" as ab;
+
+.intro-parent {
+	padding-block: 8em 4em;
+
+	@include ab.screen-40 {
+		padding-block: 12em 8em;
+	}
+}
+
+.intro {
+	width: min(90%, 80rem);
+
+	margin-inline: auto;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+
+	@include ab.screen-40 {
+		flex-direction: row-reverse;
+		align-items: center;
+	}
+
+	&-img {
+		flex: 50%;
+
+		opacity: 0;
+		scale: 0.3;
+		animation: pop 0.7s ease-in 0.1s forwards;
+
+		img {
+			width: 100%;
+
+			@include ab.screen-40 {
+				margin-left: auto;
+				max-width: 30rem;
+			}
+		}
+	}
+
+	&-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6em;
+
+		animation: elevate 0.7s ease-in 0.1s forwards;
+
+		@include ab.screen-40 {
+			flex: 50%;
+		}
+
+		&__head {
+			background-image: linear-gradient(to right, #eacda3, #d6ae7b);
+
+			font-size: clamp(2.5rem, 3.5vw, 4rem);
+			background-clip: text;
+			color: transparent;
+		}
+
+		&__p {
+			color: #fff7e9;
+			font-size: clamp(1rem, 1.1vw, 1.2rem);
+		}
+
+		&__launch {
+			margin-block: 0.5em;
+
+			font-size: clamp(1.5rem, 2vw, 1.8rem);
+		}
+	}
+}
+
+@keyframes pop {
+	from {
+		opacity: 0;
+		scale: 0.3;
+	}
+	to {
+		opacity: 1;
+		scale: 1;
+	}
+}
+
+@keyframes elevate {
+	from {
+		translate: 0 35em;
+		opacity: 0.2;
+	}
+	to {
+		translate: 0 0;
+		opacity: 1;
+	}
+}
