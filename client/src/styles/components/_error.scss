@@ -1,0 +1,61 @@
+@use "../abstracts" as ab;
+
+#error-modal {
+	border-radius: 0.6em;
+	padding-inline: 2em 1em;
+	padding-block: 1em;
+	backdrop-filter: blur(0.2em);
+	background-color: rgba(255, 255, 255, 0.671);
+	display: flex;
+	gap: 0.8em;
+	align-items: flex-start;
+	color: ab.$background-dark1;
+
+	position: fixed;
+	top: 0.8em;
+
+	left: 50%;
+	translate: -50%;
+
+	width: min(90%, 22rem);
+
+	z-index: 10;
+
+	img {
+		width: 1.75rem;
+	}
+
+	&__div {
+		&-head {
+			font-weight: 600;
+			font-size: 1.18rem;
+			color: ab.$background-dark1;
+			text-align: left;
+			margin-bottom: 0;
+			padding-block: 0;
+		}
+
+		&-message {
+			margin-block: 0.2em 0.5em;
+			font-size: 1rem;
+			color: ab.$background-dark1;
+			text-align: left;
+		}
+
+		#error-close {
+			outline: none;
+			border: none;
+			background-color: #1677ff;
+			color: ab.$text-primary;
+			padding-inline: 1em;
+			padding-block: 0.2em;
+			border-radius: 0.5em;
+			display: inline-block;
+
+			position: relative;
+			left: 100%;
+			translate: -100%;
+			cursor: pointer;
+		}
+	}
+}

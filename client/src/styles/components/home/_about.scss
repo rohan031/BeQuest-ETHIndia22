@@ -1,0 +1,93 @@
+@use "../../abstracts" as ab;
+
+.about {
+	background-color: ab.$background-dark2;
+	width: min(95%, 80rem);
+	border-radius: 0.8em;
+
+	margin-top: 2em;
+	margin-inline: auto;
+	padding-block: 1em 4em;
+
+	text-transform: capitalize;
+
+	img {
+		width: clamp(22rem, 80vw, 30rem);
+
+		margin-inline: auto;
+		margin-bottom: -1.8em;
+	}
+
+	&-card {
+		display: flex;
+		flex-direction: column;
+		gap: 2em;
+
+		padding-inline: 1em;
+
+		@include ab.screen-40 {
+			flex-direction: row;
+			gap: 1em;
+
+			justify-content: center;
+
+			padding-inline: 0;
+		}
+
+		&-item {
+			background-image: ab.$card-gradient1;
+			border-radius: 0.6em;
+
+			padding-inline: 0.6em;
+			padding-block: 1em;
+
+			display: flex;
+			flex-direction: column;
+			gap: 0.4em;
+
+			translate: max(-100vw, -50em);
+			transition: translate 0.7s ease-in;
+
+			&.left {
+				translate: 0;
+			}
+
+			&.right {
+				translate: 0;
+			}
+
+			@include ab.screen-40 {
+				width: min(47%, 30rem);
+
+				padding-inline: 1.2em;
+				padding-block: 1.5em;
+			}
+
+			@include ab.screen-50 {
+				padding-inline: 2.3em;
+				padding-block: 3em;
+			}
+
+			&:nth-child(2) {
+				background-image: ab.$card-gradient2;
+			}
+
+			&__head {
+				font-size: clamp(1.8rem, 3vw, 2.2rem);
+				color: #1f1d36;
+			}
+
+			&__text {
+				&-p {
+					color: #303c5e;
+					font-size: clamp(1rem, 2.8vw, 1.1rem);
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}
+
+.item-right {
+	translate: min(100vw, 50em);
+}

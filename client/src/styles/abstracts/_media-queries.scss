@@ -1,0 +1,29 @@
+@mixin screen-40 {
+	@media (min-width: 40em) {
+		@content;
+	}
+}
+
+@mixin screen-50 {
+	@media (min-width: 50em) {
+		@content;
+	}
+}
+
+@mixin screen-62 {
+	@media (min-width: 62.5em) {
+		@content;
+	}
+}
+
+@mixin screen-68 {
+	@media (min-width: 68em) {
+		@content;
+	}
+}
+
+@mixin screen-75 {
+	@media (min-width: 75em) {
+		@content;
+	}
+}
