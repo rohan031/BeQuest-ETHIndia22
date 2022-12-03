@@ -364,17 +364,16 @@ export async function getChainAddress(){
 		if(id == 5){
 			return "0xEcDCa539396fC1EFd3828c7b0D4f6dEDBcBbBbB1"
 		}
-		if(id == 338){
-			//genosis
+		if(id == 10200){
+			return "0x6453520192572aA93931d25F3E66680F75B53ce4"
 		}
 		if(id == 1287){
-			//moonbeam
+			return "0x1Dd6D563ae2A42f186ed30D2135B2B743875561E"
 		}
-		if(id == 1338){
-		//cronos
+		if(id == 338){
+			return "0x4316C2284987924ab6feC228C21f2753454301eb"
 		}
 
 	}
 
 }
-
