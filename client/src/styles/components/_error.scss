@@ -11,6 +11,10 @@
 	align-items: flex-start;
 	color: ab.$background-dark1;
 
+	&.success {
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
 	position: fixed;
 	top: 0.8em;
 
@@ -33,6 +37,10 @@
 			text-align: left;
 			margin-bottom: 0;
 			padding-block: 0;
+
+			&.success {
+				color: ab.$success;
+			}
 		}
 
 		&-message {

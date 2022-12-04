@@ -6,12 +6,6 @@
 	margin-top: 5em;
 
 	display: flex;
-	// animation: scrolling 10s linear infinite;
-	// flex-wrap: wrap;
-	// align-items: center;
-	// justify-content: center;
-	// gap: 1em;
-
 	overflow-x: hidden;
 
 	.marquee {
@@ -27,9 +21,6 @@
 	}
 
 	&-item {
-		// flex: 0 0 16vw;
-		// animation: scrolling 10s linear infinite;
-
 		&.ens {
 			div {
 				display: flex;

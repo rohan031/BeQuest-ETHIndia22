@@ -10,8 +10,15 @@ import {
 } from "../../backendConnectors/integration";
 import { ethers } from "ethers";
 import Error from "../Error";
+import Success from "../Success";
 
-function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
+function CreateWillForm({
+	tokenDetails,
+	setLoading,
+	tokenFees,
+	setTokenFees,
+	address,
+}) {
 	const {
 		register,
 		handleSubmit,
@@ -33,6 +40,8 @@ function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
 		state: false,
 		message: "",
 	});
+
+	const [success, setSuccess] = useState(false);
 
 	const providerRef = useRef();
 
@@ -112,7 +121,7 @@ function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
 					state: false,
 					message: "",
 				});
-			}, 3000);
+			}, 2000);
 		} finally {
 			setLoading(false);
 		}
@@ -153,7 +162,8 @@ function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
 				willInfo.contractAddress,
 				willInfo.message,
 				videoCidRef.current,
-				tokenFees
+				tokenFees,
+				address
 			);
 
 			if (status.status) {
@@ -161,6 +171,13 @@ function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
 					status: false,
 					file: "",
 				});
+
+				// setSuccess(true);
+
+				// setTimeout(() => {
+				// 	setSuccess(false);
+				// }, 4000);
+
 				reset();
 				setTokenFees("0x2386F26FC10000");
 				setEnableSubmit(false);
@@ -237,6 +254,8 @@ function CreateWillForm({ tokenDetails, setLoading, tokenFees, setTokenFees }) {
 	return (
 		<form onSubmit={handleSubmit(createWill)} className="input-form">
 			{err.state && <Error message={err.message} />}
+
+			{success && <Success />}
 
 			<Input
 				label={"Token Name"}

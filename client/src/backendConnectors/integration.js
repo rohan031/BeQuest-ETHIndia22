@@ -35,7 +35,8 @@ export async function signRequest(
 	tokenAddress,
 	message,
 	videoLink = "",
-	fees = "0x2386F26FC10000"
+	fees = "0x2386F26FC10000",
+	address
 ) {
 	try {
 		const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
@@ -55,8 +56,8 @@ export async function signRequest(
 			{ value: fees }
 		);
 		await tx.wait();
-		let from = await getAddress();
-		await push("sign", from, benificary);
+		// let from = await getAddress();
+		await push("sign", address, benificary);
 		return { status: true };
 	} catch (err) {
 		let msg;

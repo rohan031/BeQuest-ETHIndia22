@@ -148,6 +148,17 @@
 					max-height: 45rem;
 				}
 
+				.world-coin {
+					display: flex;
+					flex-direction: column;
+					gap: 1em;
+
+					@include ab.screen-75 {
+						flex-direction: row;
+						align-items: center;
+					}
+				}
+
 				h3 {
 					background-image: ab.$bequest-gradient;
 

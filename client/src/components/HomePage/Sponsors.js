@@ -17,27 +17,6 @@ import Goreil from "../../assests/goerli.svg";
 function Sponsors() {
 	return (
 		<div className="sponsors">
-			{/* <div className="sponsors-logo">
-				<img
-					src={PolygonLogo}
-					style={{
-						objectFit: "contain",
-					}}
-					alt="" /
-				/>
-				<span className="sponsors-logo__seperator"> </span>
-				<img src={ChainlinkLogo} alt="" / />
-			</div>
-
-			<div className="sponsors-text">
-				<p className="sponsors-text__p">
-					* chainlink automation : asset transfering using chainlink keeper
-				</p>
-				<p className="sponsors-text__p">
-					* polygon chain's digital assets supported : ERC20 Tokens Like USDT,
-					etc.
-				</p>
-			</div> */}
 			<div className="marquee">
 				<div class="sponsors-item">
 					<img src={ConsenSy} alt="" />
@@ -96,6 +75,26 @@ function Sponsors() {
 
 				<div class="sponsors-item">
 					<img src={valist} alt="" style={{ width: "7rem" }} />
+				</div>
+
+				<div class="sponsors-item">
+					<img src={ConsenSy} alt="" />
+				</div>
+
+				<div class="sponsors-item">
+					<img src={Covalent} alt="" />
+				</div>
+
+				<div class="sponsors-item">
+					<img src={Push} style={{ width: "7rem" }} alt="" />
+				</div>
+
+				<div class="sponsors-item">
+					<img src={GnosisSafe} style={{ width: "7rem" }} alt="" />
+				</div>
+
+				<div class="sponsors-item">
+					<img src={FileCoin} alt="" />
 				</div>
 			</div>
 		</div>

@@ -42,16 +42,14 @@ const Footer = () => {
 					</p>
 
 					<div class="footer-icons">
-						<a href="#">
-							<i class="fa fa-facebook"></i>
+						<a href="#" target="_blank">
+							<i class="fa fa-youtube"></i>
 						</a>
-						<a href="#">
-							<i class="fa fa-twitter"></i>
-						</a>
-						<a href="#">
-							<i class="fa fa-linkedin"></i>
-						</a>
-						<a href="#">
+
+						<a
+							href="https://github.com/rohan031/BeQuest-ETHIndia22"
+							target="_blank"
+						>
 							<i class="fa fa-github"></i>
 						</a>
 					</div>

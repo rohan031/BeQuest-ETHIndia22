@@ -15,15 +15,18 @@ function Intro() {
 
 			<div className="intro-text">
 				<h1 className="intro-text__head bequest-gradient">
-					Bequest your legacy now
+					BeQuest your legacy now
 				</h1>
 
 				<p className="intro-text__p">
-				More than $20 billion in digital assets (coins, tokens, and nfts) have already been lost as a result of the loss of private keys or death.
+					More than $20 billion in digital assets (coins, tokens, and nfts) have
+					already been lost as a result of the loss of private keys or death.
 				</p>
 
 				<p className="intro-text__p">
-				Bequest Protocol enables users to leave their digital assets, such as wrapped coins, tokens, NFTs, and so on, to their next wallet or beneficiary's address.
+					Bequest Protocol enables users to leave their digital assets, such as
+					wrapped coins, tokens, NFTs, and so on, to their next wallet or
+					beneficiary's address.
 				</p>
 
 				<div className="intro-text__launch">

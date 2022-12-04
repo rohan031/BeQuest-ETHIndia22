@@ -33,14 +33,17 @@ function Plans() {
 								etc.
 							</li>
 							<li className="plans-card__item-info__ul-li">
-								Free Faucet Option						</li>
-							<li className="plans-card__item-info__ul-li">
-							Polygon chain (testnet) support							</li>
-							<li className="plans-card__item-info__ul-li">
-								Can attach video messages using Filecoin Storage
+								Multiple chains supported.
 							</li>
 							<li className="plans-card__item-info__ul-li">
-							Oracle Chainlink is being used for automation.							</li>
+								Attach video and messages using Filecoin Storage
+							</li>
+							<li className="plans-card__item-info__ul-li">
+								Oracle Chainlink is being used for automation.
+							</li>
+							<li className="plans-card__item-info__ul-li">
+								Add supported chains in one click.
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -49,20 +52,22 @@ function Plans() {
 					<img src={FuturePlan} alt="" />
 
 					<div className="plans-card__item-info">
-						<h3 className="plans-card__item-info__head">Coming Features!</h3>
+						<h3 className="plans-card__item-info__head">Upcoming Features!</h3>
 
 						<ul className="plans-card__item-info__ul">
 							<li className="plans-card__item-info__ul-li">
 								allowing multiple beneficiaries inheritance.
 							</li>
 							<li className="plans-card__item-info__ul-li">
-							Compatible with all ERC721, nfts such as bored ape, cryptokitties, and others.
+								Compatible with all ERC721, nfts such as bored ape,
+								cryptokitties, and others.
 							</li>
 							<li className="plans-card__item-info__ul-li">
-							allowing the user to define the percentage of tokens to be sent to each beneficiary.
+								allowing the user to define the percentage of tokens to be sent
+								to each beneficiary.
 							</li>
 							<li className="plans-card__item-info__ul-li">
-							additional control over potential crypto scam links emails.
+								additional control over potential crypto scam links emails.
 							</li>
 							<li className="plans-card__item-info__ul-li">
 								launch bequest protocol token.
