@@ -151,11 +151,7 @@ export async function stop(id) {
 		const signer = provider.getSigner();
 		const address = await signer.getAddress();
 		let chainAddress = await getChainAddress();
-		const contract = new ethers.Contract(
-			process.env.REACT_APP_BEQUEST_ADDRESS,
-			abi,
-			signer
-		);
+		const contract = new ethers.Contract(chainAddress, abi, signer);
 		let tx = await contract.stopWill(id);
 		await tx.wait();
 		return { success: true };
