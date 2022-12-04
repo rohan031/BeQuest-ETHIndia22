@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
     "@metamask/detect-provider": "^2.0.0",

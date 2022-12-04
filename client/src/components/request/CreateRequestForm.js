@@ -172,11 +172,11 @@ function CreateWillForm({
 					file: "",
 				});
 
-				// setSuccess(true);
+				setSuccess(true);
 
-				// setTimeout(() => {
-				// 	setSuccess(false);
-				// }, 4000);
+				setTimeout(() => {
+					setSuccess(false);
+				}, 4000);
 
 				reset();
 				setTokenFees("0x2386F26FC10000");
